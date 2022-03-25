@@ -2,7 +2,7 @@ const Question = require("../Model/QuestionModel")
 
 exports.getQuestion = async (req, res) => {
     Question.find().then((data)=>{
-        res.send(data);
+        res.json(data)
     })
     .catch((error)=>{
         console.log(error)
