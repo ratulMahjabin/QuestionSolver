@@ -6,6 +6,6 @@ require("dotenv").config()
 connectDB()
 
 app.use(express.json({extende:false}))
-app.get("/:id", getQuestion)
+app.get("/", getQuestion)
 app.post("/", createQuestion)
 app.listen(5000, () => {console.log("Listening on port 5000")})

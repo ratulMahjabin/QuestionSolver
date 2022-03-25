@@ -1,8 +1,13 @@
 const Question = require("../Model/QuestionModel")
 
 exports.getQuestion = async (req, res) => {
-    const question = await Question.findById(req.params.id)
-    res.json(question)
+    Question.find().then((data)=>{
+        res.send(data);
+    })
+    .catch((error)=>{
+        console.log(error)
+        res.send(error)
+    })
 }
 exports.createQuestion = async (req, res) => {
     const question = new Question({...req.body})
