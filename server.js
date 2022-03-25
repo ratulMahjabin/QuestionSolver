@@ -1,0 +1,11 @@
+const express = require("express")
+const connectDB = require("./config/db")
+const { getQuestion, createQuestion } = require("./controllers/QuestionController")
+const app = express()
+require("dotenv").config()
+connectDB()
+
+app.use(express.json({extende:false}))
+app.get("/:id", getQuestion)
+app.post("/", createQuestion)
+app.listen(5000, () => {console.log("Listening on port 5000")})
